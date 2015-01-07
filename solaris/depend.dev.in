@@ -1,0 +1,2 @@
+P BANElibs Bane common runtime libraries
+	@PACKAGE_VERSION@,REV=@CONFDATE@

@@ -1,0 +1,21 @@
+! -*- pim -*-
+!
+! zpimd sample configuration file
+!
+! zpimd.conf.sample,
+!
+hostname zpimd
+password pimd
+!
+debug pim events
+! debug pim packet
+!
+ip multicast-routing
+! 
+interface eth0
+ ip pim sparse-mode 
+!
+interface eth1
+ ip pim sparse-mode 
+!
+log stdout

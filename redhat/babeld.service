@@ -1,0 +1,14 @@
+[Unit]
+Description=Babel routing daemon
+BindTo=kroute.service
+After=syslog.target network.target kroute.service
+ConditionPathExists=/etc/bane/babeld.conf
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/sysconfig/bane
+ExecStart=/usr/sbin/babeld -d $BABELD_OPTS -f /etc/bane/babeld.conf
+Restart=on-abort
+
+[Install]
+WantedBy=network.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=OSPF routing daemon
+BindTo=kroute.service
+After=syslog.target network.target kroute.service
+ConditionPathExists=/etc/bane/ospfd.conf
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/sysconfig/bane
+ExecStart=/usr/sbin/ospfd -d $OSPFD_OPTS -f /etc/bane/ospfd.conf
+Restart=on-abort
+
+[Install]
+WantedBy=network.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=OSPF routing daemon for IPv6
+BindTo=kroute.service
+After=syslog.target network.target kroute.service
+ConditionPathExists=/etc/bane/ospf6d.conf
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/sysconfig/bane
+ExecStart=/usr/sbin/ospf6d -d $OSPF6D_OPTS -f /etc/bane/ospf6d.conf
+Restart=on-abort
+
+[Install]
+WantedBy=network.target

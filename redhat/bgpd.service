@@ -1,0 +1,14 @@
+[Unit]
+Description=BGP routing daemon
+BindTo=kroute.service
+After=syslog.target network.target kroute.service
+ConditionPathExists=/etc/bane/bgpd.conf
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/sysconfig/bane
+ExecStart=/usr/sbin/bgpd -d $BGPD_OPTS -f /etc/bane/bgpd.conf
+Restart=on-abort
+
+[Install]
+WantedBy=network.target

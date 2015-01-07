@@ -1,0 +1,2 @@
+PKG=BANElibs
+NAME="@PACKAGE_NAME@ - @PACKAGE_NAME@ common runtime libraries"

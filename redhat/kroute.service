@@ -1,0 +1,14 @@
+[Unit]
+Description=GNU Kroute routing manager
+After=syslog.target network.target
+ConditionPathExists=/etc/bane/kroute.conf
+
+[Service]
+Type=forking
+EnvironmentFile=-/etc/sysconfig/bane
+ExecStartPre=/sbin/ip route flush proto kroute
+ExecStart=/usr/sbin/kroute -d $KROUTE_OPTS -f /etc/bane/kroute.conf
+Restart=on-abort
+
+[Install]
+WantedBy=network.target

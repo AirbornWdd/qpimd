@@ -1,0 +1,14 @@
+[Unit]
+Description=IS-IS routing daemon
+BindTo=kroute.service
+After=syslog.target network.target kroute.service
+ConditionPathExists=/etc/bane/isisd.conf
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/sysconfig/bane
+ExecStart=/usr/sbin/isisd -d $ISISD_OPTS -f /etc/bane/isisd.conf
+Restart=on-abort
+
+[Install]
+WantedBy=network.target

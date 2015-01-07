@@ -1,0 +1,8 @@
+P BANEdaemons Bane daemons
+	@PACKAGE_VERSION@,REV=@CONFDATE@
+P SUNWcsu Core Solaris, (Usr)
+P SUNWcsr Core Solaris Libraries (Root)
+P SUNWroute Network Routing daemons/commands (Usr)
+I SUNWkrouter
+I SUNWkrouteu
+I CSWkroute

@@ -1,0 +1,14 @@
+[Unit]
+Description=PIM routing daemon
+BindTo=kroute.service
+After=syslog.target network.target kroute.service
+ConditionPathExists=/etc/bane/pimd.conf
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/sysconfig/bane
+ExecStart=/usr/sbin/pimd -d $PIMD_OPTS -f /etc/bane/pimd.conf
+Restart=on-abort
+
+[Install]
+WantedBy=network.target

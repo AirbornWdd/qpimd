@@ -1,0 +1,63 @@
+/var/log/bane/kroute.log {
+    notifempty
+    missingok
+    postrotate
+	/bin/kill -USR1 `cat /var/run/bane/kroute.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
+
+/var/log/bane/babeld.log {
+    notifempty
+    missingok
+    postrotate
+	/bin/kill -USR1 `cat /var/run/bane/babeld.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
+
+/var/log/bane/bgpd.log {
+    notifempty
+    missingok
+    postrotate
+	/bin/kill -USR1 `cat /var/run/bane/bgpd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
+
+/var/log/bane/isisd.log {
+    notifempty
+    missingok
+    postrotate
+	/bin/kill -USR1 `cat /var/run/bane/isisd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
+
+/var/log/bane/ospfd.log {
+    notifempty
+    missingok
+    postrotate
+	/bin/kill -USR1 `cat /var/run/bane/ospfd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
+
+/var/log/bane/ospf6d.log {
+    notifempty
+    missingok
+    postrotate
+	/bin/kill -USR1 `cat /var/run/bane/ospf6d.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
+
+/var/log/bane/ripd.log {
+    notifempty
+    missingok
+    postrotate
+	/bin/kill -USR1 `cat /var/run/bane/ripd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
+
+/var/log/bane/ripngd.log {
+    notifempty
+    missingok
+    postrotate
+	/bin/kill -USR1 `cat /var/run/bane/ripngd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
